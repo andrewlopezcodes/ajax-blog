@@ -37,9 +37,33 @@ const newBlogpost =()=>{
 
 
 const updateBlogpost = () =>{
+  const title = document.querySelector('#input-title').value;
+  const content = document.querySelector('#textarea-content').value;
 }
 
-const editBlogpost = () =>{}
+const editBlogpost = ( =>{
+  const blogpostID = document.querySelector('#input-title').value;
+  const content = document.querySelector('#textarea-content').value;
+
+//   function editPost (event) {
+//   event.preventDefault()
+//   const id = determinePost()
+//   const title = document.querySelector('#title').value
+//   const content = document.querySelector('#content').value
+//
+//   Post.update(id, { title, content })
+//   .then(({ data: { post } }) => goToPost(post))
+//   .catch(errorsView.show)
+// }
+//
+// window.editPostView = {
+//   init (post) {
+//     document.querySelector('#view').innerHTML = formTemplate('UPDATE', post)
+//     document.querySelector('#post-form').addEventListener('submit', editPost)
+//   }
+// }
+
+}
 const deleteBlogpost = () => {}
 
 
