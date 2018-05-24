@@ -1,0 +1,40 @@
+* {
+  font-family: Helvetica;
+}
+body {
+  background-color: skyblue;
+  padding-left: 5%;
+}
+#blogpost-titles{
+  float: left;
+  width: 33%;
+  padding-right: 30px;
+  padding-bottom: 100%;
+  background-color: white;
+  text-align: center;
+  border: #000000 10px;
+}
+
+#blogpost-titles-list{
+  list-style-type: none;
+}
+#blogpost-titles-list li{
+text-align: left;
+padding-bottom: 10px;
+}
+
+#main-panel {
+  float: none;
+  padding-left: 100px;
+  width: 80%;
+  text-align:justify;
+  background-color: #FFFEE4;
+  text-align: center;
+}
+label {
+  width: 100px;
+
+}
+#label-title {
+  padding-bottom: 10px;
+}
