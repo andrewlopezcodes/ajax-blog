@@ -41,30 +41,50 @@ const updateBlogpost = () =>{
   const content = document.querySelector('#textarea-content').value;
 }
 
-const editBlogpost = ( =>{
-  const blogpostID = document.querySelector('#input-title').value;
-  const content = document.querySelector('#textarea-content').value;
+const editBlogpost = blogpost =>{
+  mainPanelEl.innerHTML = `<h3>Edit Blog Post</h3>
+  <form>
+  <label for="title">Title</label>
+  <input type="text" name="title" id="input-title-edit" /><br><br>
+  <label for="content">Content</label>
+  <textarea name="content" id="textarea-content-edit"></textarea>
+  <br>
+  <br>
+  <button id="update-button">Update</button>
+  </form>`
+  document.querySelector('#input-title-edit').vaule = blogpost.title
+  document.querySelector('#textarea-content-edit').value = blogpost.content;
+  document.querySelector('#update-button').addEventListener('click', () => {
+    updatedBlogpost(blogpost)
+  });
 
-//   function editPost (event) {
-//   event.preventDefault()
-//   const id = determinePost()
-//   const title = document.querySelector('#title').value
-//   const content = document.querySelector('#content').value
-//
-//   Post.update(id, { title, content })
-//   .then(({ data: { post } }) => goToPost(post))
-//   .catch(errorsView.show)
-// }
-//
-// window.editPostView = {
-//   init (post) {
-//     document.querySelector('#view').innerHTML = formTemplate('UPDATE', post)
-//     document.querySelector('#post-form').addEventListener('submit', editPost)
-//   }
-// }
+
+
+
+
+
+
 
 }
-const deleteBlogpost = () => {}
+const deleteBlogpost = Blogpost => {
+  axios.delete(`${baseURL}/${blogpost.id}`)
+  .then(response => {
+    loadTitles();
+    mainPanelEl.innerHTML = "";
+  })
+  .catch(error => console.error(error));
+}
+
+const updatedBlogpost = Blogpost => {
+  const title = document.querySelector('#input-title-edit').value;
+  const content = document.querySelector('#textarea-content-edit').value;
+   axios.put(`${baseURL}/${blogpost.id}`, {title,content})
+   .then(response => {
+     console.log(response);
+     showBlogpost(response.data);
+   })
+   .catch(error => console.error(error));
+}
 
 
 const showBlogpost = blogpost =>{
