@@ -39,6 +39,11 @@ const newBlogpost =()=>{
 const updateBlogpost = () =>{
   const title = document.querySelector('#input-title').value;
   const content = document.querySelector('#textarea-content').value;
+  axios.put(`${baseURL}/${blogpost.id}`, {title: id, })
+    .then(response => {
+      container.innerHTML =
+      `<code>${JSON.stringify(result.data)}</code>`
+    })
 }
 
 const editBlogpost = blogpost =>{
